@@ -1,7 +1,8 @@
 {
   "name": "@georgealways/js",
   "version": "1.0.0",
-  "description": "Highly opinionated JavaScript utilities",
+  "author": "George Michael Brower",
+  "license": "MIT",
   "main": "dist/gmb.cjs.js",
   "module": "dist/gmb.esm.js",
   "files": [
@@ -14,8 +15,11 @@
     "test": "mocha -r esm test/test.*.js",
     "build": "rollup -c"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/georgealways/js.git"
+  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
     "esm": "^3.2.25",
