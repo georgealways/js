@@ -621,4 +621,4 @@ class Shuffler {
 
 }
 
-export { Noise, Random, SeededRandom, Shuffler, URL, is, math, noise, random, seededRandom, url };
+export { Noise, Random, SeededRandom, Shuffler, URL, clamp, clamp01, clerp, cmap, cnormalize, deg2rad, dist, dist2, is, lerp, map, math, noise, normalize, rad2deg, random, seededRandom, url, wrap };

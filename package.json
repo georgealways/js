@@ -1,6 +1,6 @@
 {
   "name": "@georgealways/js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "George Michael Brower",
   "license": "MIT",
   "main": "dist/gmb.cjs.js",

@@ -19,3 +19,5 @@ export {
     URL,
     Shuffler
 };
+
+export * from './math.js';
