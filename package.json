@@ -1,0 +1,25 @@
+{
+  "name": "@georgealways/js",
+  "version": "1.0.0",
+  "description": "Highly opinionated JavaScript utilities",
+  "main": "dist/gmb.cjs.js",
+  "module": "dist/gmb.esm.js",
+  "files": [
+    "dist"
+  ],
+  "eslintIgnore": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "mocha -r esm test/test.*.js",
+    "build": "rollup -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "esm": "^3.2.25",
+    "mocha": "^6.1.4",
+    "rollup": "^1.15.5"
+  }
+}
