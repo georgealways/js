@@ -24,6 +24,7 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsdoc": "^15.6.1",
     "esm": "^3.2.25",
     "jsdoc-to-markdown": "^5.0.0",
     "mocha": "^6.1.4",

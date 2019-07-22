@@ -2,36 +2,29 @@ import { lerp } from './math.js';
 import { SeededRandom } from './seededRandom.js';
 
 /**
- * TODO:
  * 
- * All noise functions are scaled to be between [0,1], *not* [-1,1]!
- * 
- * https://github.com/keijiro/PerlinNoise
- * http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
- * http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
- * https://gist.github.com/Fataho/5b422037a6fdcb21c9134ef34d2fa79a#file-perlinnoise2d-java-L60
  */
 class Noise {
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} seed 
      */
     constructor( seed ) {
 
         /**
-         * TODO
+         * TODO.
          */
         this.octaves = 2;
 
         /**
-         * TODO
+         * TODO.
          */
         this.persistence = 0.5;
 
         /**
-         * TODO
+         * TODO.
          */
         this.lacunarity = 2;
 
@@ -57,7 +50,7 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} seed 
      */
@@ -69,12 +62,12 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} noise value from [0,1]
+     * @returns {number} Noise value from [0,1].
      */
     perlin( x, y, z ) {
 
@@ -109,12 +102,12 @@ class Noise {
 
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} noise value from [0,1]
+     * @returns {number} Noise value from [0,1].
      */
     simplex( x, y, z ) {
 
@@ -148,7 +141,7 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      */
@@ -496,5 +489,11 @@ const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
  * 
  */
 const noise = new Noise();
+
+// Implementation references:
+// https://github.com/keijiro/PerlinNoise
+// http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
+// http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
+// https://gist.github.com/Fataho/5b422037a6fdcb21c9134ef34d2fa79a#file-perlinnoise2d-java-L60
 
 export { noise, Noise };

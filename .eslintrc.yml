@@ -5,7 +5,10 @@ parserOptions:
   ecmaVersion: 2017
   sourceType: module
 plugins:
-- import
+  - import
+  - jsdoc
+extends:
+  - plugin:jsdoc/recommended
 rules:
   import/default: error
   import/extensions: [ warn, ignorePackages, { js: always } ]
@@ -13,6 +16,11 @@ rules:
   import/named: error
   import/no-default-export: error
   import/no-unresolved: error
+  # jsdoc/require-description: warn
+  # jsdoc/require-description-complete-sentence: warn
+  jsdoc/require-jsdoc: off
+  jsdoc/require-param-description: off
+  jsdoc/require-returns-description: off
   array-bracket-spacing: [ warn, always ]
   arrow-spacing: warn
   brace-style: [ warn, 1tbs ]

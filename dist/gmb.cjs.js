@@ -222,10 +222,6 @@ class Random {
 const random = new Random();
 
 /**
- * https://gist.github.com/blixt/f17b47c62508be59987b#gistcomment-2792771
- * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
- * 
  * @extends Random
  */
 class SeededRandom extends Random {
@@ -266,17 +262,13 @@ const imul = Math.imul || function( a, b ) {
     return r | 0;
 };
 
+/**
+ * 
+ */
 const seededRandom = new SeededRandom();
 
 /**
- * TODO:
  * 
- * All noise functions are scaled to be between [0,1], *not* [-1,1]!
- * 
- * https://github.com/keijiro/PerlinNoise
- * http://webstaff.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
- * http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
- * https://gist.github.com/Fataho/5b422037a6fdcb21c9134ef34d2fa79a#file-perlinnoise2d-java-L60
  */
 class Noise {
 

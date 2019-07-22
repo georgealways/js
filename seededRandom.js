@@ -1,11 +1,8 @@
 import { Random } from './random.js';
 
+
 /**
- * https://gist.github.com/blixt/f17b47c62508be59987b#gistcomment-2792771
- * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
- * 
- * @extends Random
+ * @augments Random
  */
 class SeededRandom extends Random {
 
@@ -49,5 +46,11 @@ const imul = Math.imul || function( a, b ) {
  * 
  */
 const seededRandom = new SeededRandom();
+
+
+// Implentation references:
+// https://gist.github.com/blixt/f17b47c62508be59987b#gistcomment-2792771
+// https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
 
 export { seededRandom, SeededRandom };
