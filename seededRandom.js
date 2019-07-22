@@ -45,6 +45,9 @@ const imul = Math.imul || function( a, b ) {
     return r | 0;
 };
 
+/**
+ * 
+ */
 const seededRandom = new SeededRandom();
 
 export { seededRandom, SeededRandom };
