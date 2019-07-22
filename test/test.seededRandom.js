@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { rangeExclusive } from './utils.js';
-import { seededRandom, SeededRandom } from '../seededRandom.js';
+import { rangeExclusive } from './utils';
+import { seededRandom, SeededRandom } from '..';
 
 describe( 'seededRandom', function() {
 

@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { rangeInclusive } from './utils.js';
-import { noise, Noise } from '../noise.js';
+import { rangeInclusive } from './utils';
+import { noise, Noise } from '..';
 
 describe( 'noise', function() {
 

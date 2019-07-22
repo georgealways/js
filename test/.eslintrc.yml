@@ -1,1 +1,4 @@
-env: { mocha: true }
+env: 
+  mocha: true
+rules:
+  import/extensions: off
