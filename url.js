@@ -1,4 +1,4 @@
-export class URL {
+class URL {
 
     constructor( href ) {
 
@@ -6,7 +6,7 @@ export class URL {
         const q = href.indexOf( '?' );
 
         this.hash = h === -1 ? undefined : href.substring( h + 1 );
-        
+
         this.strings = {};
 
         if ( q !== -1 ) {
@@ -41,4 +41,6 @@ export class URL {
 
 }
 
-export default new URL( typeof window === 'undefined' ? '' : location.href );
+const url = new URL( typeof window === 'undefined' ? '' : location.href );
+
+export { url, URL };

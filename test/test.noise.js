@@ -1,8 +1,6 @@
 import assert from 'assert';
-
 import { rangeInclusive } from './utils.js';
-
-import noise, { Noise } from '../noise.js';
+import { noise, Noise } from '../noise.js';
 
 describe( 'noise', function() {
 
@@ -10,17 +8,9 @@ describe( 'noise', function() {
     noiseTest( 'perlin2', 2, 0.15, 0.35 );
     noiseTest( 'perlin3', 3, 0.15, 0.35 );
 
-    // noiseTest( 'perlin1f', 1, 0.25, 0.35 );
-    // noiseTest( 'perlin2f', 2, 0.25, 0.35 );
-    // noiseTest( 'perlin3f', 3, 0.25, 0.35 );
-
     noiseTest( 'simplex1', 1, 0.5, 0.35 );
     noiseTest( 'simplex2', 2, 0.5, 0.35 );
     noiseTest( 'simplex3', 3, 0.5, 0.35 );
-
-    // noiseTest( 'simplex1f', 1, 0.5, 0.35 );
-    // noiseTest( 'simplex2f', 2, 0.5, 0.35 );
-    // noiseTest( 'simplex3f', 3, 0.5, 0.35 );
 
     describe( 'seed', function() {
 

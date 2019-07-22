@@ -13,7 +13,8 @@
   ],
   "scripts": {
     "test": "mocha -r esm test/test.*.js",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "lint": "eslint *.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.18.2",
     "esm": "^3.2.25",
     "mocha": "^6.1.4",
     "rollup": "^1.15.5"

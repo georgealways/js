@@ -1,6 +1,6 @@
 import { lerp } from './math.js';
 
-export class Random {
+class Random {
 
     value() {
         return Math.random();
@@ -37,4 +37,6 @@ export class Random {
 
 }
 
-export default new Random();
+const random = new Random();
+
+export { random, Random };

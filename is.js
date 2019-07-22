@@ -1,6 +1,6 @@
 const toString = Object.prototype.toString;
 
-export default {
+export const is = {
     string:   v => toString.call( v ) === '[object String]',
     function: v => /\[object (Async)?Function\]/.test( toString.call( v ) ),
     number:   v => toString.call( v ) === '[object Number]',

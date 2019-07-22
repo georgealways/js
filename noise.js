@@ -9,7 +9,7 @@ import { SeededRandom } from './seededRandom.js';
  * http://riven8192.blogspot.com/2010/08/calculate-perlinnoise-twice-as-fast.html
  * https://gist.github.com/Fataho/5b422037a6fdcb21c9134ef34d2fa79a#file-perlinnoise2d-java-L60
  */
-export class Noise {
+class Noise {
 
     constructor( seed ) {
 
@@ -421,4 +421,6 @@ const G2 = ( 3 - Math.sqrt( 3 ) ) / 6;
 
 const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
 
-export default new Noise();
+const noise = new Noise();
+
+export { noise, Noise };

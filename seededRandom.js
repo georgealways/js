@@ -5,7 +5,7 @@ import { Random } from './random.js';
  * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
  */
-export class SeededRandom extends Random {
+class SeededRandom extends Random {
 
     constructor( seed ) {
         super();
@@ -35,4 +35,6 @@ const imul = Math.imul || function( a, b ) {
     return r | 0;
 };
 
-export default new SeededRandom();
+const seededRandom = new SeededRandom();
+
+export { seededRandom, SeededRandom };

@@ -1,7 +1,6 @@
 import assert from 'assert';
 import { contains, rangeExclusive } from './utils.js';
-
-import random from '../random.js';
+import { random } from '../random.js';
 
 describe( 'random', function() {
 
