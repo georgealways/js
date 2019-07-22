@@ -4,104 +4,117 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 /**
  * 
- * @param {*} t 
- * @param {*} a 
- * @param {*} b 
- * @param {*} c 
- * @param {*} d 
+ * @param {number} t 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} c 
+ * @param {number} d 
+ * @returns {number}
  */
 const map = ( t, a, b, c, d ) => a === b ? c : c + ( d - c ) * ( t - a ) / ( b - a );
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} t 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} t 
+ * @returns {number}
  */
 const lerp = ( a, b, t ) => ( b - a ) * t + a;
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} v 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} v 
+ * @returns {number}
  */
 const normalize = ( a, b, v ) => ( v - a ) / ( b - a );
 
 /**
  * 
- * @param {*} t 
- * @param {*} a 
- * @param {*} b 
- * @param {*} c 
- * @param {*} d 
+ * @param {number} t 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} c 
+ * @param {number} d 
+ * @returns {number}
  */
 const cmap = ( t, a, b, c, d ) => map( clamp( t, a, b ), a, b, c, d );
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} t 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} t 
+ * @returns {number}
  */
 const clerp = ( a, b, t ) => lerp( a, b, clamp01( t ) );
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} v 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} v 
+ * @returns {number}
  */
 const cnormalize = ( a, b, v ) => normalize( a, b, clamp( v, a, b ) );
 
 /**
  * 
- * @param {*} v 
- * @param {*} a 
- * @param {*} b 
+ * @param {number} v 
+ * @param {number} a 
+ * @param {number} b 
+ * @returns {number}
  */
 const clamp = ( v, a, b ) => Math.max( Math.min( a, b ), Math.min( Math.max( a, b ), v ) );
 
 /**
  * 
- * @param {*} v 
+ * @param {number} v 
+ * @returns {number}
  */
 const clamp01 = v => Math.max( 0, Math.min( 1, v ) );
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} c 
- * @param {*} d 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} c 
+ * @param {number} d 
+ * @returns {number}
  */
 const dist = ( a, b, c, d ) => Math.sqrt( dist2( a, b, c, d ) );
 
 /**
  * 
- * @param {*} a 
- * @param {*} b 
- * @param {*} c 
- * @param {*} d 
+ * @param {number} a 
+ * @param {number} b 
+ * @param {number} c 
+ * @param {number} d 
+ * @returns {number}
  */
 const dist2 = ( a, b, c, d ) => ( c - a ) * ( c - a ) + ( d - b ) * ( d - b );
 
 /**
  * 
- * @param {*} d 
+ * @param {number} d 
+ * @returns {number}
  */
 const deg2rad = d => d * Math.PI / 180;
 
 /**
  * 
- * @param {*} r 
+ * @param {number} r 
+ * @returns {number}
  */
 const rad2deg = r => r * 180 / Math.PI;
 
 /**
  * 
- * @param {*} v 
- * @param {*} r 
+ * @param {number} v 
+ * @param {number} r 
+ * @returns {number}
  */
 const wrap = ( v, r ) => ( v %= r, v + Math.ceil( Math.max( 0, -v ) / r ) * r );
 
@@ -222,7 +235,7 @@ class Random {
 const random = new Random();
 
 /**
- * @extends Random
+ * @augments Random
  */
 class SeededRandom extends Random {
 
@@ -273,24 +286,24 @@ const seededRandom = new SeededRandom();
 class Noise {
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} seed 
      */
     constructor( seed ) {
 
         /**
-         * TODO
+         * TODO.
          */
         this.octaves = 2;
 
         /**
-         * TODO
+         * TODO.
          */
         this.persistence = 0.5;
 
         /**
-         * TODO
+         * TODO.
          */
         this.lacunarity = 2;
 
@@ -316,7 +329,7 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} seed 
      */
@@ -328,12 +341,12 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} noise value from [0,1]
+     * @returns {number} Noise value from [0,1].
      */
     perlin( x, y, z ) {
 
@@ -368,12 +381,12 @@ class Noise {
 
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} noise value from [0,1]
+     * @returns {number} Noise value from [0,1].
      */
     simplex( x, y, z ) {
 
@@ -407,7 +420,7 @@ class Noise {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
      * @param {number} x 
      */
