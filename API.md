@@ -15,7 +15,7 @@
         * [new SeededRandom([seed])](#new_module_@georgealways/js..SeededRandom_new)
         * [.seed([seed])](#module_@georgealways/js..SeededRandom+seed)
     * [~Noise](#module_@georgealways/js..Noise)
-        * [new Noise(seed)](#new_module_@georgealways/js..Noise_new)
+        * [new Noise([seed])](#new_module_@georgealways/js..Noise_new)
         * [.octaves](#module_@georgealways/js..Noise+octaves)
         * [.persistence](#module_@georgealways/js..Noise+persistence)
         * [.lacunarity](#module_@georgealways/js..Noise+lacunarity)
@@ -177,7 +177,7 @@ single-octave or fractal noise values in the range of [0,1].
 **Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 * [~Noise](#module_@georgealways/js..Noise)
-    * [new Noise(seed)](#new_module_@georgealways/js..Noise_new)
+    * [new Noise([seed])](#new_module_@georgealways/js..Noise_new)
     * [.octaves](#module_@georgealways/js..Noise+octaves)
     * [.persistence](#module_@georgealways/js..Noise+persistence)
     * [.lacunarity](#module_@georgealways/js..Noise+lacunarity)
@@ -193,14 +193,18 @@ single-octave or fractal noise values in the range of [0,1].
 
 <a name="new_module_@georgealways/js..Noise_new"></a>
 
-#### new Noise(seed)
-TODO.
-
+#### new Noise([seed])
 
 | Param | Type |
 | --- | --- |
-| seed | <code>number</code> | 
+| [seed] | <code>number</code> | 
 
+**Example**  
+```js
+var noise = new Noise( 1234 );
+noise.octaves = 3;
+noise.perlin( 0, 0.1 );
+```
 <a name="module_@georgealways/js..Noise+octaves"></a>
 
 #### noise.octaves
@@ -222,7 +226,7 @@ TODO.
 <a name="module_@georgealways/js..Noise+seed"></a>
 
 #### noise.seed(seed)
-TODO.
+Re-seeds the noise generator.
 
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
@@ -233,10 +237,11 @@ TODO.
 <a name="module_@georgealways/js..Noise+perlin"></a>
 
 #### noise.perlin(x, [y], [z]) ⇒ <code>number</code>
-TODO.
+Generates fractal Perlin noise using the settings defined by octaves, 
+persistence and lacunarity, in up to 3 dimensions.
 
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -247,10 +252,11 @@ TODO.
 <a name="module_@georgealways/js..Noise+simplex"></a>
 
 #### noise.simplex(x, [y], [z]) ⇒ <code>number</code>
-TODO.
+Generates fractal Simplex noise using the settings defined by octaves, 
+persistence and lacunarity, in up to 3 dimensions.
 
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -261,10 +267,10 @@ TODO.
 <a name="module_@georgealways/js..Noise+perlin1"></a>
 
 #### noise.perlin1(x) ⇒ <code>number</code>
-TODO.
+Generates a single octave of 1D Perlin noise.
 
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -273,58 +279,68 @@ TODO.
 <a name="module_@georgealways/js..Noise+perlin2"></a>
 
 #### noise.perlin2(x, y) ⇒ <code>number</code>
+Generates a single octave of 2D Perlin noise.
+
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
+| x | <code>number</code> | 
+| y | <code>number</code> | 
 
 <a name="module_@georgealways/js..Noise+perlin3"></a>
 
 #### noise.perlin3(x, y, z) ⇒ <code>number</code>
+Generates a single octave of 3D Perlin noise.
+
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
-| z | <code>\*</code> | 
+| x | <code>number</code> | 
+| y | <code>number</code> | 
+| z | <code>number</code> | 
 
 <a name="module_@georgealways/js..Noise+simplex1"></a>
 
 #### noise.simplex1(x) ⇒ <code>number</code>
+Generates a single octave of 1D Simplex noise.
+
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
-| x | <code>\*</code> | 
+| x | <code>number</code> | 
 
 <a name="module_@georgealways/js..Noise+simplex2"></a>
 
 #### noise.simplex2(x, y) ⇒ <code>number</code>
+Generates a single octave of 2D Simplex noise.
+
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
+| x | <code>number</code> | 
+| y | <code>number</code> | 
 
 <a name="module_@georgealways/js..Noise+simplex3"></a>
 
 #### noise.simplex3(x, y, z) ⇒ <code>number</code>
+Generates a single octave of 3D Simplex noise.
+
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
-**Returns**: <code>number</code> - Noise value from [0,1].  
+**Returns**: <code>number</code> - noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
-| z | <code>\*</code> | 
+| x | <code>number</code> | 
+| y | <code>number</code> | 
+| z | <code>number</code> | 
 
 <a name="module_@georgealways/js..URL"></a>
 

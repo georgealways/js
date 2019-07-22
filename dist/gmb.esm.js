@@ -296,13 +296,16 @@ const seededRandom = new SeededRandom();
 /**
  * Generator for Perlin and Simplex gradient noise functions. Computes 
  * single-octave or fractal noise values in the range of [0,1].
+ * 
+ * @example
+ * var noise = new Noise( 1234 );
+ * noise.octaves = 3;
+ * noise.perlin( 0, 0.1 );
  */
 class Noise {
 
     /**
-     * TODO.
-     * 
-     * @param {number} seed 
+     * @param {number} [seed]
      */
     constructor( seed ) {
 
@@ -343,7 +346,7 @@ class Noise {
     }
 
     /**
-     * TODO.
+     * Re-seeds the noise generator.
      * 
      * @param {number} seed 
      */
@@ -355,12 +358,13 @@ class Noise {
     }
 
     /**
-     * TODO.
+     * Generates fractal Perlin noise using the settings defined by octaves, 
+     * persistence and lacunarity, in up to 3 dimensions.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} Noise value from [0,1].
+     * @returns {number} noise value from [0,1].
      */
     perlin( x, y, z ) {
 
@@ -395,12 +399,13 @@ class Noise {
 
 
     /**
-     * TODO.
+     * Generates fractal Simplex noise using the settings defined by octaves, 
+     * persistence and lacunarity, in up to 3 dimensions.
      * 
      * @param {number} x 
      * @param {number} [y] 
      * @param {number} [z] 
-     * @returns {number} Noise value from [0,1].
+     * @returns {number} noise value from [0,1].
      */
     simplex( x, y, z ) {
 
@@ -434,10 +439,10 @@ class Noise {
     }
 
     /**
-     * TODO.
+     * Generates a single octave of 1D Perlin noise.
      * 
      * @param {number} x 
-     * @returns {number} Noise value from [0,1].
+     * @returns {number} noise value from [0,1].
      */
     perlin1( x ) {
 
@@ -457,10 +462,11 @@ class Noise {
     }
 
     /**
+     * Generates a single octave of 2D Perlin noise.
      * 
-     * @param {*} x 
-     * @param {*} y 
-     * @returns {number} Noise value from [0,1].
+     * @param {number} x 
+     * @param {number} y 
+     * @returns {number} noise value from [0,1].
      */
     perlin2( x, y ) {
 
@@ -492,11 +498,12 @@ class Noise {
     }
 
     /**
+     * Generates a single octave of 3D Perlin noise.
      * 
-     * @param {*} x 
-     * @param {*} y 
-     * @param {*} z 
-     * @returns {number} Noise value from [0,1].
+     * @param {number} x 
+     * @param {number} y 
+     * @param {number} z 
+     * @returns {number} noise value from [0,1].
      */
     perlin3( x, y, z ) {
 
@@ -549,9 +556,10 @@ class Noise {
     }
 
     /**
+     * Generates a single octave of 1D Simplex noise.
      * 
-     * @param {*} x 
-     * @returns {number} Noise value from [0,1].
+     * @param {number} x 
+     * @returns {number} noise value from [0,1].
      */
     simplex1( x ) {
 
@@ -574,10 +582,11 @@ class Noise {
     }
 
     /**
+     * Generates a single octave of 2D Simplex noise.
      * 
-     * @param {*} x 
-     * @param {*} y 
-     * @returns {number} Noise value from [0,1].
+     * @param {number} x 
+     * @param {number} y 
+     * @returns {number} noise value from [0,1].
      */
     simplex2( x, y ) {
 
@@ -639,11 +648,12 @@ class Noise {
     }
 
     /**
+     * Generates a single octave of 3D Simplex noise.
      * 
-     * @param {*} x 
-     * @param {*} y 
-     * @param {*} z 
-     * @returns {number} Noise value from [0,1].
+     * @param {number} x 
+     * @param {number} y 
+     * @param {number} z 
+     * @returns {number} noise value from [0,1].
      */
     simplex3( x, y, z ) {
 

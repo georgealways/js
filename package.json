@@ -14,7 +14,8 @@
   "scripts": {
     "test": "mocha -r esm test/test.*.js",
     "build": "rollup -c",
-    "lint": "eslint *.js"
+    "lint": "eslint *.js",
+    "docs": "npm run build && jsdoc2md dist/gmb.esm.js > API.md"
   },
   "repository": {
     "type": "git",

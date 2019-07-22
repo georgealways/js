@@ -2,17 +2,15 @@
 
 import pkg from './package.json';
 
-const opts = {
-    banner: `/**
+const banner = `/**
  * @module @georgealways/js
  */
-`
-};
+`;
 
 export default {
     input: 'bundle.js',
     output: [
-        { ...opts, file: pkg.main, format: 'cjs' },
-        { ...opts, file: pkg.module, format: 'es' }
+        { banner, file: pkg.main, format: 'cjs' },
+        { banner, file: pkg.module, format: 'es' }
     ]
 };
