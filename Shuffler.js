@@ -1,6 +1,6 @@
-import random from './random.js';
+import { random } from './random.js';
 
-export default class Shuffler {
+export class Shuffler {
 
     constructor( arr, rng ) {
         this.arr = arr;

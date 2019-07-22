@@ -1,3 +1,5 @@
+/* eslint-disable import/no-default-export */
+
 import pkg from './package.json';
 
 export default {

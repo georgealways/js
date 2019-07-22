@@ -1,7 +1,6 @@
 import assert from 'assert';
-
 import * as math from '../math.js';
-import is from '../is.js';
+import { is } from '../is.js';
 
 describe( 'math', function() {
 
