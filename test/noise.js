@@ -1,6 +1,6 @@
 /* global dat */
 
-import { Noise } from '../noise.js';
+import { Noise } from '..';
 
 const plots = [];
 

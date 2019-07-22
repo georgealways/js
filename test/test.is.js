@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { is } from '../is.js';
+import { is } from '..';
 
 describe( 'is', function() {
 

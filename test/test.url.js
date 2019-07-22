@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { URL } from '../url.js';
+import { URL } from '..';
 
 describe( 'URL', function() {
 

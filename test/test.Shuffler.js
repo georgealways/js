@@ -1,6 +1,6 @@
 import assert from 'assert';
-import { Shuffler } from '../Shuffler.js';
-import { SeededRandom } from '../seededRandom.js';
+import { Shuffler } from '..';
+import { SeededRandom } from '..';
 
 describe( 'Shuffler', function() {
 
