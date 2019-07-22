@@ -120,6 +120,9 @@ const wrap = ( v, r ) => ( v %= r, v + Math.ceil( Math.max( 0, -v ) / r ) * r );
 
 const toString = Object.prototype.toString;
 
+/**
+ * 
+ */
 const is = {
 
     /**

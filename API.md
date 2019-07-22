@@ -1,131 +1,135 @@
-## Classes
+<a name="module_@georgealways/js"></a>
 
-<dl>
-<dt><a href="#Random">Random</a></dt>
-<dd></dd>
-<dt><a href="#SeededRandom">SeededRandom</a> ⇐ <code><a href="#Random">Random</a></code></dt>
-<dd></dd>
-<dt><a href="#Noise">Noise</a></dt>
-<dd></dd>
-<dt><a href="#URL">URL</a></dt>
-<dd></dd>
-<dt><a href="#Shuffler">Shuffler</a></dt>
-<dd></dd>
-</dl>
+## @georgealways/js
 
-## Constants
+* [@georgealways/js](#module_@georgealways/js)
+    * [~Random](#module_@georgealways/js..Random)
+        * [.value()](#module_@georgealways/js..Random+value) ⇒ <code>number</code>
+        * [.range(min, max)](#module_@georgealways/js..Random+range) ⇒ <code>number</code>
+        * [.int(min, max)](#module_@georgealways/js..Random+int) ⇒ <code>number</code>
+        * [.pick(arr)](#module_@georgealways/js..Random+pick) ⇒ <code>\*</code>
+        * [.chance(percent)](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
+        * [.sign(percent)](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
+        * [.shuffle(arr, [start], [stop])](#module_@georgealways/js..Random+shuffle)
+    * [~SeededRandom](#module_@georgealways/js..SeededRandom) ⇐ <code>Random</code>
+        * [new SeededRandom(seed)](#new_module_@georgealways/js..SeededRandom_new)
+        * [.seed([seed])](#module_@georgealways/js..SeededRandom+seed)
+    * [~Noise](#module_@georgealways/js..Noise)
+        * [new Noise(seed)](#new_module_@georgealways/js..Noise_new)
+        * [.octaves](#module_@georgealways/js..Noise+octaves)
+        * [.persistence](#module_@georgealways/js..Noise+persistence)
+        * [.lacunarity](#module_@georgealways/js..Noise+lacunarity)
+        * [.seed(seed)](#module_@georgealways/js..Noise+seed)
+        * [.perlin(x, [y], [z])](#module_@georgealways/js..Noise+perlin) ⇒ <code>number</code>
+        * [.simplex(x, [y], [z])](#module_@georgealways/js..Noise+simplex) ⇒ <code>number</code>
+        * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1)
+        * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2)
+        * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3)
+        * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1)
+        * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2)
+        * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3)
+    * [~URL](#module_@georgealways/js..URL)
+        * [.hash](#module_@georgealways/js..URL+hash)
+        * [.strings](#module_@georgealways/js..URL+strings)
+        * [.boolean(name, defaultValue)](#module_@georgealways/js..URL+boolean)
+        * [.number(name, defaultValue)](#module_@georgealways/js..URL+number)
+    * [~Shuffler](#module_@georgealways/js..Shuffler)
+        * [new Shuffler(arr, rng)](#new_module_@georgealways/js..Shuffler_new)
+        * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>any</code>
+    * [~is](#module_@georgealways/js..is)
+        * [.array](#module_@georgealways/js..is.array)
+        * [.string()](#module_@georgealways/js..is.string)
+        * [.function()](#module_@georgealways/js..is.function)
+        * [.number()](#module_@georgealways/js..is.number)
+        * [.object()](#module_@georgealways/js..is.object)
+        * [.boolean()](#module_@georgealways/js..is.boolean)
+    * [~random](#module_@georgealways/js..random)
+    * [~seededRandom](#module_@georgealways/js..seededRandom)
+    * [~noise](#module_@georgealways/js..noise)
+    * [~url](#module_@georgealways/js..url)
+    * [~map(t, a, b, c, d)](#module_@georgealways/js..map) ⇒ <code>number</code>
+    * [~lerp(a, b, t)](#module_@georgealways/js..lerp) ⇒ <code>number</code>
+    * [~normalize(a, b, v)](#module_@georgealways/js..normalize) ⇒ <code>number</code>
+    * [~cmap(t, a, b, c, d)](#module_@georgealways/js..cmap) ⇒ <code>number</code>
+    * [~clerp(a, b, t)](#module_@georgealways/js..clerp) ⇒ <code>number</code>
+    * [~cnormalize(a, b, v)](#module_@georgealways/js..cnormalize) ⇒ <code>number</code>
+    * [~clamp(v, a, b)](#module_@georgealways/js..clamp) ⇒ <code>number</code>
+    * [~clamp01(v)](#module_@georgealways/js..clamp01) ⇒ <code>number</code>
+    * [~dist(a, b, c, d)](#module_@georgealways/js..dist) ⇒ <code>number</code>
+    * [~dist2(a, b, c, d)](#module_@georgealways/js..dist2) ⇒ <code>number</code>
+    * [~deg2rad(d)](#module_@georgealways/js..deg2rad) ⇒ <code>number</code>
+    * [~rad2deg(r)](#module_@georgealways/js..rad2deg) ⇒ <code>number</code>
+    * [~wrap(v, r)](#module_@georgealways/js..wrap) ⇒ <code>number</code>
 
-<dl>
-<dt><a href="#random">random</a></dt>
-<dd></dd>
-<dt><a href="#seededRandom">seededRandom</a></dt>
-<dd></dd>
-<dt><a href="#noise">noise</a></dt>
-<dd></dd>
-<dt><a href="#url">url</a></dt>
-<dd></dd>
-</dl>
+<a name="module_@georgealways/js..Random"></a>
 
-## Functions
+### @georgealways/js~Random
+**Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
-<dl>
-<dt><a href="#map">map(t, a, b, c, d)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#lerp">lerp(a, b, t)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#normalize">normalize(a, b, v)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#cmap">cmap(t, a, b, c, d)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#clerp">clerp(a, b, t)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#cnormalize">cnormalize(a, b, v)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#clamp">clamp(v, a, b)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#clamp01">clamp01(v)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#dist">dist(a, b, c, d)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#dist2">dist2(a, b, c, d)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#deg2rad">deg2rad(d)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#rad2deg">rad2deg(r)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-<dt><a href="#wrap">wrap(v, r)</a> ⇒ <code>number</code></dt>
-<dd></dd>
-</dl>
+* [~Random](#module_@georgealways/js..Random)
+    * [.value()](#module_@georgealways/js..Random+value) ⇒ <code>number</code>
+    * [.range(min, max)](#module_@georgealways/js..Random+range) ⇒ <code>number</code>
+    * [.int(min, max)](#module_@georgealways/js..Random+int) ⇒ <code>number</code>
+    * [.pick(arr)](#module_@georgealways/js..Random+pick) ⇒ <code>\*</code>
+    * [.chance(percent)](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
+    * [.sign(percent)](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
+    * [.shuffle(arr, [start], [stop])](#module_@georgealways/js..Random+shuffle)
 
-<a name="Random"></a>
+<a name="module_@georgealways/js..Random+value"></a>
 
-## Random
-**Kind**: global class  
+#### random.value() ⇒ <code>number</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
+<a name="module_@georgealways/js..Random+range"></a>
 
-* [Random](#Random)
-    * [.value()](#Random+value) ⇒ <code>number</code>
-    * [.range(min, max)](#Random+range) ⇒ <code>number</code>
-    * [.int(min, max)](#Random+int) ⇒ <code>number</code>
-    * [.pick(arr)](#Random+pick) ⇒ <code>\*</code>
-    * [.chance(percent)](#Random+chance) ⇒ <code>boolean</code>
-    * [.sign(percent)](#Random+sign) ⇒ <code>number</code>
-    * [.shuffle(arr, [start], [stop])](#Random+shuffle)
-
-<a name="Random+value"></a>
-
-### random.value() ⇒ <code>number</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
-<a name="Random+range"></a>
-
-### random.range(min, max) ⇒ <code>number</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
-
-| Param | Type |
-| --- | --- |
-| min | <code>number</code> | 
-| max | <code>number</code> | 
-
-<a name="Random+int"></a>
-
-### random.int(min, max) ⇒ <code>number</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
+#### random.range(min, max) ⇒ <code>number</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type |
 | --- | --- |
 | min | <code>number</code> | 
 | max | <code>number</code> | 
 
-<a name="Random+pick"></a>
+<a name="module_@georgealways/js..Random+int"></a>
 
-### random.pick(arr) ⇒ <code>\*</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
+#### random.int(min, max) ⇒ <code>number</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
+
+| Param | Type |
+| --- | --- |
+| min | <code>number</code> | 
+| max | <code>number</code> | 
+
+<a name="module_@georgealways/js..Random+pick"></a>
+
+#### random.pick(arr) ⇒ <code>\*</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type |
 | --- | --- |
 | arr | <code>Array</code> | 
 
-<a name="Random+chance"></a>
+<a name="module_@georgealways/js..Random+chance"></a>
 
-### random.chance(percent) ⇒ <code>boolean</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| percent | <code>number</code> | <code>0.5</code> | 
-
-<a name="Random+sign"></a>
-
-### random.sign(percent) ⇒ <code>number</code>
-**Kind**: instance method of [<code>Random</code>](#Random)  
+#### random.chance(percent) ⇒ <code>boolean</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type | Default |
 | --- | --- | --- |
 | percent | <code>number</code> | <code>0.5</code> | 
 
-<a name="Random+shuffle"></a>
+<a name="module_@georgealways/js..Random+sign"></a>
 
-### random.shuffle(arr, [start], [stop])
-**Kind**: instance method of [<code>Random</code>](#Random)  
+#### random.sign(percent) ⇒ <code>number</code>
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| percent | <code>number</code> | <code>0.5</code> | 
+
+<a name="module_@georgealways/js..Random+shuffle"></a>
+
+#### random.shuffle(arr, [start], [stop])
+**Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type | Default |
 | --- | --- | --- |
@@ -133,132 +137,56 @@
 | [start] | <code>number</code> | <code>0</code> | 
 | [stop] | <code>number</code> |  | 
 
-<a name="SeededRandom"></a>
+<a name="module_@georgealways/js..SeededRandom"></a>
 
-## SeededRandom ⇐ [<code>Random</code>](#Random)
-**Kind**: global class  
-**Extends**: [<code>Random</code>](#Random)  
+### @georgealways/js~SeededRandom ⇐ <code>Random</code>
+**Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+**Extends**: <code>Random</code>  
 
-* [SeededRandom](#SeededRandom) ⇐ [<code>Random</code>](#Random)
-    * [new SeededRandom(seed)](#new_SeededRandom_new)
-    * [.seed([seed])](#SeededRandom+seed)
-    * [.value()](#Random+value) ⇒ <code>number</code>
-    * [.range(min, max)](#Random+range) ⇒ <code>number</code>
-    * [.int(min, max)](#Random+int) ⇒ <code>number</code>
-    * [.pick(arr)](#Random+pick) ⇒ <code>\*</code>
-    * [.chance(percent)](#Random+chance) ⇒ <code>boolean</code>
-    * [.sign(percent)](#Random+sign) ⇒ <code>number</code>
-    * [.shuffle(arr, [start], [stop])](#Random+shuffle)
+* [~SeededRandom](#module_@georgealways/js..SeededRandom) ⇐ <code>Random</code>
+    * [new SeededRandom(seed)](#new_module_@georgealways/js..SeededRandom_new)
+    * [.seed([seed])](#module_@georgealways/js..SeededRandom+seed)
 
-<a name="new_SeededRandom_new"></a>
+<a name="new_module_@georgealways/js..SeededRandom_new"></a>
 
-### new SeededRandom(seed)
+#### new SeededRandom(seed)
 
 | Param | Type |
 | --- | --- |
 | seed | <code>number</code> | 
 
-<a name="SeededRandom+seed"></a>
+<a name="module_@georgealways/js..SeededRandom+seed"></a>
 
-### seededRandom.seed([seed])
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
+#### seededRandom.seed([seed])
+**Kind**: instance method of [<code>SeededRandom</code>](#module_@georgealways/js..SeededRandom)  
 
 | Param | Type |
 | --- | --- |
 | [seed] | <code>number</code> | 
 
-<a name="Random+value"></a>
+<a name="module_@georgealways/js..Noise"></a>
 
-### seededRandom.value() ⇒ <code>number</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>value</code>](#Random+value)  
-<a name="Random+range"></a>
+### @georgealways/js~Noise
+**Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
-### seededRandom.range(min, max) ⇒ <code>number</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>range</code>](#Random+range)  
+* [~Noise](#module_@georgealways/js..Noise)
+    * [new Noise(seed)](#new_module_@georgealways/js..Noise_new)
+    * [.octaves](#module_@georgealways/js..Noise+octaves)
+    * [.persistence](#module_@georgealways/js..Noise+persistence)
+    * [.lacunarity](#module_@georgealways/js..Noise+lacunarity)
+    * [.seed(seed)](#module_@georgealways/js..Noise+seed)
+    * [.perlin(x, [y], [z])](#module_@georgealways/js..Noise+perlin) ⇒ <code>number</code>
+    * [.simplex(x, [y], [z])](#module_@georgealways/js..Noise+simplex) ⇒ <code>number</code>
+    * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1)
+    * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2)
+    * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3)
+    * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1)
+    * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2)
+    * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3)
 
-| Param | Type |
-| --- | --- |
-| min | <code>number</code> | 
-| max | <code>number</code> | 
+<a name="new_module_@georgealways/js..Noise_new"></a>
 
-<a name="Random+int"></a>
-
-### seededRandom.int(min, max) ⇒ <code>number</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>int</code>](#Random+int)  
-
-| Param | Type |
-| --- | --- |
-| min | <code>number</code> | 
-| max | <code>number</code> | 
-
-<a name="Random+pick"></a>
-
-### seededRandom.pick(arr) ⇒ <code>\*</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>pick</code>](#Random+pick)  
-
-| Param | Type |
-| --- | --- |
-| arr | <code>Array</code> | 
-
-<a name="Random+chance"></a>
-
-### seededRandom.chance(percent) ⇒ <code>boolean</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>chance</code>](#Random+chance)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| percent | <code>number</code> | <code>0.5</code> | 
-
-<a name="Random+sign"></a>
-
-### seededRandom.sign(percent) ⇒ <code>number</code>
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>sign</code>](#Random+sign)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| percent | <code>number</code> | <code>0.5</code> | 
-
-<a name="Random+shuffle"></a>
-
-### seededRandom.shuffle(arr, [start], [stop])
-**Kind**: instance method of [<code>SeededRandom</code>](#SeededRandom)  
-**Overrides**: [<code>shuffle</code>](#Random+shuffle)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| arr | <code>Array</code> |  | 
-| [start] | <code>number</code> | <code>0</code> | 
-| [stop] | <code>number</code> |  | 
-
-<a name="Noise"></a>
-
-## Noise
-**Kind**: global class  
-
-* [Noise](#Noise)
-    * [new Noise(seed)](#new_Noise_new)
-    * [.octaves](#Noise+octaves)
-    * [.persistence](#Noise+persistence)
-    * [.lacunarity](#Noise+lacunarity)
-    * [.seed(seed)](#Noise+seed)
-    * [.perlin(x, [y], [z])](#Noise+perlin) ⇒ <code>number</code>
-    * [.simplex(x, [y], [z])](#Noise+simplex) ⇒ <code>number</code>
-    * [.perlin1(x)](#Noise+perlin1)
-    * [.perlin2(x, y)](#Noise+perlin2)
-    * [.perlin3(x, y, z)](#Noise+perlin3)
-    * [.simplex1(x)](#Noise+simplex1)
-    * [.simplex2(x, y)](#Noise+simplex2)
-    * [.simplex3(x, y, z)](#Noise+simplex3)
-
-<a name="new_Noise_new"></a>
-
-### new Noise(seed)
+#### new Noise(seed)
 TODO.
 
 
@@ -266,41 +194,41 @@ TODO.
 | --- | --- |
 | seed | <code>number</code> | 
 
-<a name="Noise+octaves"></a>
+<a name="module_@georgealways/js..Noise+octaves"></a>
 
-### noise.octaves
+#### noise.octaves
 TODO.
 
-**Kind**: instance property of [<code>Noise</code>](#Noise)  
-<a name="Noise+persistence"></a>
+**Kind**: instance property of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+<a name="module_@georgealways/js..Noise+persistence"></a>
 
-### noise.persistence
+#### noise.persistence
 TODO.
 
-**Kind**: instance property of [<code>Noise</code>](#Noise)  
-<a name="Noise+lacunarity"></a>
+**Kind**: instance property of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+<a name="module_@georgealways/js..Noise+lacunarity"></a>
 
-### noise.lacunarity
+#### noise.lacunarity
 TODO.
 
-**Kind**: instance property of [<code>Noise</code>](#Noise)  
-<a name="Noise+seed"></a>
+**Kind**: instance property of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+<a name="module_@georgealways/js..Noise+seed"></a>
 
-### noise.seed(seed)
+#### noise.seed(seed)
 TODO.
 
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
 | Param | Type |
 | --- | --- |
 | seed | <code>number</code> | 
 
-<a name="Noise+perlin"></a>
+<a name="module_@georgealways/js..Noise+perlin"></a>
 
-### noise.perlin(x, [y], [z]) ⇒ <code>number</code>
+#### noise.perlin(x, [y], [z]) ⇒ <code>number</code>
 TODO.
 
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 **Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
@@ -309,12 +237,12 @@ TODO.
 | [y] | <code>number</code> | 
 | [z] | <code>number</code> | 
 
-<a name="Noise+simplex"></a>
+<a name="module_@georgealways/js..Noise+simplex"></a>
 
-### noise.simplex(x, [y], [z]) ⇒ <code>number</code>
+#### noise.simplex(x, [y], [z]) ⇒ <code>number</code>
 TODO.
 
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 **Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
@@ -323,61 +251,31 @@ TODO.
 | [y] | <code>number</code> | 
 | [z] | <code>number</code> | 
 
-<a name="Noise+perlin1"></a>
+<a name="module_@georgealways/js..Noise+perlin1"></a>
 
-### noise.perlin1(x)
+#### noise.perlin1(x)
 TODO.
 
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
 | Param | Type |
 | --- | --- |
 | x | <code>number</code> | 
 
-<a name="Noise+perlin2"></a>
+<a name="module_@georgealways/js..Noise+perlin2"></a>
 
-### noise.perlin2(x, y)
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
-
-| Param | Type |
-| --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
-
-<a name="Noise+perlin3"></a>
-
-### noise.perlin3(x, y, z)
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
-
-| Param | Type |
-| --- | --- |
-| x | <code>\*</code> | 
-| y | <code>\*</code> | 
-| z | <code>\*</code> | 
-
-<a name="Noise+simplex1"></a>
-
-### noise.simplex1(x)
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
-
-| Param | Type |
-| --- | --- |
-| x | <code>\*</code> | 
-
-<a name="Noise+simplex2"></a>
-
-### noise.simplex2(x, y)
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+#### noise.perlin2(x, y)
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
 | Param | Type |
 | --- | --- |
 | x | <code>\*</code> | 
 | y | <code>\*</code> | 
 
-<a name="Noise+simplex3"></a>
+<a name="module_@georgealways/js..Noise+perlin3"></a>
 
-### noise.simplex3(x, y, z)
-**Kind**: instance method of [<code>Noise</code>](#Noise)  
+#### noise.perlin3(x, y, z)
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
 | Param | Type |
 | --- | --- |
@@ -385,87 +283,154 @@ TODO.
 | y | <code>\*</code> | 
 | z | <code>\*</code> | 
 
-<a name="URL"></a>
+<a name="module_@georgealways/js..Noise+simplex1"></a>
 
-## URL
-**Kind**: global class  
+#### noise.simplex1(x)
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
-* [URL](#URL)
-    * [.hash](#URL+hash)
-    * [.strings](#URL+strings)
-    * [.boolean(name, defaultValue)](#URL+boolean)
-    * [.number(name, defaultValue)](#URL+number)
+| Param | Type |
+| --- | --- |
+| x | <code>\*</code> | 
 
-<a name="URL+hash"></a>
+<a name="module_@georgealways/js..Noise+simplex2"></a>
 
-### urL.hash
-**Kind**: instance property of [<code>URL</code>](#URL)  
-<a name="URL+strings"></a>
+#### noise.simplex2(x, y)
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
 
-### urL.strings
-**Kind**: instance property of [<code>URL</code>](#URL)  
-<a name="URL+boolean"></a>
+| Param | Type |
+| --- | --- |
+| x | <code>\*</code> | 
+| y | <code>\*</code> | 
 
-### urL.boolean(name, defaultValue)
-**Kind**: instance method of [<code>URL</code>](#URL)  
+<a name="module_@georgealways/js..Noise+simplex3"></a>
+
+#### noise.simplex3(x, y, z)
+**Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+
+| Param | Type |
+| --- | --- |
+| x | <code>\*</code> | 
+| y | <code>\*</code> | 
+| z | <code>\*</code> | 
+
+<a name="module_@georgealways/js..URL"></a>
+
+### @georgealways/js~URL
+**Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+
+* [~URL](#module_@georgealways/js..URL)
+    * [.hash](#module_@georgealways/js..URL+hash)
+    * [.strings](#module_@georgealways/js..URL+strings)
+    * [.boolean(name, defaultValue)](#module_@georgealways/js..URL+boolean)
+    * [.number(name, defaultValue)](#module_@georgealways/js..URL+number)
+
+<a name="module_@georgealways/js..URL+hash"></a>
+
+#### urL.hash
+**Kind**: instance property of [<code>URL</code>](#module_@georgealways/js..URL)  
+<a name="module_@georgealways/js..URL+strings"></a>
+
+#### urL.strings
+**Kind**: instance property of [<code>URL</code>](#module_@georgealways/js..URL)  
+<a name="module_@georgealways/js..URL+boolean"></a>
+
+#### urL.boolean(name, defaultValue)
+**Kind**: instance method of [<code>URL</code>](#module_@georgealways/js..URL)  
 
 | Param | Type |
 | --- | --- |
 | name | <code>string</code> | 
 | defaultValue | <code>any</code> | 
 
-<a name="URL+number"></a>
+<a name="module_@georgealways/js..URL+number"></a>
 
-### urL.number(name, defaultValue)
-**Kind**: instance method of [<code>URL</code>](#URL)  
+#### urL.number(name, defaultValue)
+**Kind**: instance method of [<code>URL</code>](#module_@georgealways/js..URL)  
 
 | Param | Type |
 | --- | --- |
 | name | <code>string</code> | 
 | defaultValue | <code>any</code> | 
 
-<a name="Shuffler"></a>
+<a name="module_@georgealways/js..Shuffler"></a>
 
-## Shuffler
-**Kind**: global class  
+### @georgealways/js~Shuffler
+**Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
-* [Shuffler](#Shuffler)
-    * [new Shuffler(arr, rng)](#new_Shuffler_new)
-    * [.next()](#Shuffler+next) ⇒ <code>any</code>
+* [~Shuffler](#module_@georgealways/js..Shuffler)
+    * [new Shuffler(arr, rng)](#new_module_@georgealways/js..Shuffler_new)
+    * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>any</code>
 
-<a name="new_Shuffler_new"></a>
+<a name="new_module_@georgealways/js..Shuffler_new"></a>
 
-### new Shuffler(arr, rng)
+#### new Shuffler(arr, rng)
 
 | Param | Type |
 | --- | --- |
 | arr | <code>Array</code> | 
-| rng | [<code>Random</code>](#Random) | 
+| rng | <code>Random</code> | 
 
-<a name="Shuffler+next"></a>
+<a name="module_@georgealways/js..Shuffler+next"></a>
 
-### shuffler.next() ⇒ <code>any</code>
-**Kind**: instance method of [<code>Shuffler</code>](#Shuffler)  
-<a name="random"></a>
+#### shuffler.next() ⇒ <code>any</code>
+**Kind**: instance method of [<code>Shuffler</code>](#module_@georgealways/js..Shuffler)  
+<a name="module_@georgealways/js..is"></a>
 
-## random
-**Kind**: global constant  
-<a name="seededRandom"></a>
+### @georgealways/js~is
+**Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
-## seededRandom
-**Kind**: global constant  
-<a name="noise"></a>
+* [~is](#module_@georgealways/js..is)
+    * [.array](#module_@georgealways/js..is.array)
+    * [.string()](#module_@georgealways/js..is.string)
+    * [.function()](#module_@georgealways/js..is.function)
+    * [.number()](#module_@georgealways/js..is.number)
+    * [.object()](#module_@georgealways/js..is.object)
+    * [.boolean()](#module_@georgealways/js..is.boolean)
 
-## noise
-**Kind**: global constant  
-<a name="url"></a>
+<a name="module_@georgealways/js..is.array"></a>
 
-## url
-**Kind**: global constant  
-<a name="map"></a>
+#### is.array
+**Kind**: static property of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..is.string"></a>
 
-## map(t, a, b, c, d) ⇒ <code>number</code>
-**Kind**: global function  
+#### is.string()
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..is.function"></a>
+
+#### is.function()
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..is.number"></a>
+
+#### is.number()
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..is.object"></a>
+
+#### is.object()
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..is.boolean"></a>
+
+#### is.boolean()
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+<a name="module_@georgealways/js..random"></a>
+
+### @georgealways/js~random
+**Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+<a name="module_@georgealways/js..seededRandom"></a>
+
+### @georgealways/js~seededRandom
+**Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+<a name="module_@georgealways/js..noise"></a>
+
+### @georgealways/js~noise
+**Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+<a name="module_@georgealways/js..url"></a>
+
+### @georgealways/js~url
+**Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
+<a name="module_@georgealways/js..map"></a>
+
+### @georgealways/js~map(t, a, b, c, d) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -475,10 +440,10 @@ TODO.
 | c | <code>number</code> | 
 | d | <code>number</code> | 
 
-<a name="lerp"></a>
+<a name="module_@georgealways/js..lerp"></a>
 
-## lerp(a, b, t) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~lerp(a, b, t) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -486,10 +451,10 @@ TODO.
 | b | <code>number</code> | 
 | t | <code>number</code> | 
 
-<a name="normalize"></a>
+<a name="module_@georgealways/js..normalize"></a>
 
-## normalize(a, b, v) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~normalize(a, b, v) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -497,10 +462,10 @@ TODO.
 | b | <code>number</code> | 
 | v | <code>number</code> | 
 
-<a name="cmap"></a>
+<a name="module_@georgealways/js..cmap"></a>
 
-## cmap(t, a, b, c, d) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~cmap(t, a, b, c, d) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -510,10 +475,10 @@ TODO.
 | c | <code>number</code> | 
 | d | <code>number</code> | 
 
-<a name="clerp"></a>
+<a name="module_@georgealways/js..clerp"></a>
 
-## clerp(a, b, t) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~clerp(a, b, t) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -521,10 +486,10 @@ TODO.
 | b | <code>number</code> | 
 | t | <code>number</code> | 
 
-<a name="cnormalize"></a>
+<a name="module_@georgealways/js..cnormalize"></a>
 
-## cnormalize(a, b, v) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~cnormalize(a, b, v) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -532,10 +497,10 @@ TODO.
 | b | <code>number</code> | 
 | v | <code>number</code> | 
 
-<a name="clamp"></a>
+<a name="module_@georgealways/js..clamp"></a>
 
-## clamp(v, a, b) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~clamp(v, a, b) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -543,19 +508,19 @@ TODO.
 | a | <code>number</code> | 
 | b | <code>number</code> | 
 
-<a name="clamp01"></a>
+<a name="module_@georgealways/js..clamp01"></a>
 
-## clamp01(v) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~clamp01(v) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
 | v | <code>number</code> | 
 
-<a name="dist"></a>
+<a name="module_@georgealways/js..dist"></a>
 
-## dist(a, b, c, d) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~dist(a, b, c, d) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -564,10 +529,10 @@ TODO.
 | c | <code>number</code> | 
 | d | <code>number</code> | 
 
-<a name="dist2"></a>
+<a name="module_@georgealways/js..dist2"></a>
 
-## dist2(a, b, c, d) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~dist2(a, b, c, d) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
@@ -576,28 +541,28 @@ TODO.
 | c | <code>number</code> | 
 | d | <code>number</code> | 
 
-<a name="deg2rad"></a>
+<a name="module_@georgealways/js..deg2rad"></a>
 
-## deg2rad(d) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~deg2rad(d) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
 | d | <code>number</code> | 
 
-<a name="rad2deg"></a>
+<a name="module_@georgealways/js..rad2deg"></a>
 
-## rad2deg(r) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~rad2deg(r) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |
 | r | <code>number</code> | 
 
-<a name="wrap"></a>
+<a name="module_@georgealways/js..wrap"></a>
 
-## wrap(v, r) ⇒ <code>number</code>
-**Kind**: global function  
+### @georgealways/js~wrap(v, r) ⇒ <code>number</code>
+**Kind**: inner method of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 | Param | Type |
 | --- | --- |

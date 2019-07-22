@@ -1,5 +1,8 @@
 const toString = Object.prototype.toString;
 
+/**
+ * 
+ */
 export const is = {
 
     /**

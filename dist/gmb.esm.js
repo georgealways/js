@@ -1,4 +1,8 @@
 /**
+ * @module @georgealways/js
+ */
+
+/**
  * 
  * @param {number} t 
  * @param {number} a 
@@ -116,6 +120,9 @@ const wrap = ( v, r ) => ( v %= r, v + Math.ceil( Math.max( 0, -v ) / r ) * r );
 
 const toString = Object.prototype.toString;
 
+/**
+ * 
+ */
 const is = {
 
     /**
