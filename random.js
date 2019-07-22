@@ -1,7 +1,7 @@
 import { lerp } from './math.js';
 
 /**
- * 
+ * Random number and array shuffling utilities.
  */
 class Random {
 
@@ -43,7 +43,7 @@ class Random {
 
     /**
      * 
-     * @param {number} percent 
+     * @param {number} [percent] 
      * @returns {boolean}
      */
     chance( percent = 0.5 ) {
@@ -52,7 +52,7 @@ class Random {
 
     /**
      * 
-     * @param {number} percent 
+     * @param {number} [percent] 
      * @returns {number}
      */
     sign( percent = 0.5 ) {
@@ -77,7 +77,7 @@ class Random {
 }
 
 /**
- * 
+ * Shared static instance of Random.
  */
 const random = new Random();
 

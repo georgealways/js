@@ -1,3 +1,7 @@
+/**
+ * @module @georgealways/js
+ */
+
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
@@ -121,43 +125,51 @@ const wrap = ( v, r ) => ( v %= r, v + Math.ceil( Math.max( 0, -v ) / r ) * r );
 const toString = Object.prototype.toString;
 
 /**
- * 
+ * Boolean test methods for type introspection.
  */
 const is = {
 
     /**
-     * 
+     * @param {*} v
+     * @returns {boolean} true if the value is a string
      */
-    string:   v => toString.call( v ) === '[object String]',
+    string: v => toString.call( v ) === '[object String]',
 
     /**
-     * 
+     * @param {*} v
+     * @returns {boolean} true if the value is a function
      */
     function: v => /\[object (Async)?Function\]/.test( toString.call( v ) ),
 
     /**
-     * 
+     * @param {*} v
+     * @returns {boolean} true if the value is a string
      */
-    number:   v => toString.call( v ) === '[object Number]',
+    number: v => toString.call( v ) === '[object Number]',
 
     /**
-     * 
+     * @kind function
+     * @param {*} v
+     * @returns {boolean} true if the value is an array
      */
-    array:    Array.isArray || ( v => toString.call( v ) === '[object Array]' ),
+    array: Array.isArray || ( v => toString.call( v ) === '[object Array]' ),
 
     /**
-     * 
+     * @param {*} v
+     * @returns {boolean} true if the value is an object
      */
-    object:   v => v === Object( v ),
+    object: v => v === Object( v ),
 
     /**
-     * 
+     * @param {*} v
+     * @returns {boolean} true if the value is a boolean
      */
-    boolean:  v => v === true || v === false
+    boolean: v => v === true || v === false
+
 };
 
 /**
- * 
+ * Random number and array shuffling utilities.
  */
 class Random {
 
@@ -199,7 +211,7 @@ class Random {
 
     /**
      * 
-     * @param {number} percent 
+     * @param {number} [percent] 
      * @returns {boolean}
      */
     chance( percent = 0.5 ) {
@@ -208,7 +220,7 @@ class Random {
 
     /**
      * 
-     * @param {number} percent 
+     * @param {number} [percent] 
      * @returns {number}
      */
     sign( percent = 0.5 ) {
@@ -233,18 +245,20 @@ class Random {
 }
 
 /**
- * 
+ * Shared static instance of Random.
  */
 const random = new Random();
 
 /**
+ * Random number and array shuffling utilities whose output can be seeded.
+ * 
  * @augments Random
  */
 class SeededRandom extends Random {
 
     /**
      * 
-     * @param {number} seed 
+     * @param {number} [seed] 
      */
     constructor( seed ) {
         super();
@@ -279,12 +293,13 @@ const imul = Math.imul || function( a, b ) {
 };
 
 /**
- * 
+ * Shared static instance of SeededRandom. Seeded with +new Date() on load.
  */
 const seededRandom = new SeededRandom();
 
 /**
- * 
+ * Generator for Perlin and Simplex gradient noise functions. Computes 
+ * single-octave or fractal noise values in the range of [0,1].
  */
 class Noise {
 
@@ -426,6 +441,7 @@ class Noise {
      * TODO.
      * 
      * @param {number} x 
+     * @returns {number} Noise value from [0,1].
      */
     perlin1( x ) {
 
@@ -448,6 +464,7 @@ class Noise {
      * 
      * @param {*} x 
      * @param {*} y 
+     * @returns {number} Noise value from [0,1].
      */
     perlin2( x, y ) {
 
@@ -483,6 +500,7 @@ class Noise {
      * @param {*} x 
      * @param {*} y 
      * @param {*} z 
+     * @returns {number} Noise value from [0,1].
      */
     perlin3( x, y, z ) {
 
@@ -537,6 +555,7 @@ class Noise {
     /**
      * 
      * @param {*} x 
+     * @returns {number} Noise value from [0,1].
      */
     simplex1( x ) {
 
@@ -562,6 +581,7 @@ class Noise {
      * 
      * @param {*} x 
      * @param {*} y 
+     * @returns {number} Noise value from [0,1].
      */
     simplex2( x, y ) {
 
@@ -627,6 +647,7 @@ class Noise {
      * @param {*} x 
      * @param {*} y 
      * @param {*} z 
+     * @returns {number} Noise value from [0,1].
      */
     simplex3( x, y, z ) {
 
@@ -768,7 +789,7 @@ const G2 = ( 3 - Math.sqrt( 3 ) ) / 6;
 const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
 
 /**
- * 
+ * Shared static instance of Noise. Seeded with +new Date() on load.
  */
 const noise = new Noise();
 
@@ -810,7 +831,8 @@ class URL {
     /**
      * 
      * @param {string} name 
-     * @param {any} defaultValue 
+     * @param {boolean} [defaultValue]
+     * @returns {boolean}
      */
     boolean( name, defaultValue ) {
         if ( !this.strings.hasOwnProperty( name ) ) {
@@ -822,7 +844,8 @@ class URL {
     /**
      * 
      * @param {string} name 
-     * @param {any} defaultValue 
+     * @param {number} [defaultValue]
+     * @returns {number}
      */
     number( name, defaultValue ) {
         const r = parseFloat( this.strings[ name ] );
@@ -835,7 +858,7 @@ class URL {
 }
 
 /**
- * 
+ * Shared static instance of URL. Uses the value of location.href on load.
  */
 const url = new URL( typeof window === 'undefined' ? '' : location.href );
 
@@ -856,7 +879,7 @@ class Shuffler {
     }
 
     /**
-     * @returns {any}
+     * @returns {*}
      */
     next() {
         if ( this.index >= this.arr.length ) {

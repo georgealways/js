@@ -2,7 +2,8 @@ import { lerp } from './math.js';
 import { SeededRandom } from './seededRandom.js';
 
 /**
- * 
+ * Generator for Perlin and Simplex gradient noise functions. Computes 
+ * single-octave or fractal noise values in the range of [0,1].
  */
 class Noise {
 
@@ -144,6 +145,7 @@ class Noise {
      * TODO.
      * 
      * @param {number} x 
+     * @returns {number} Noise value from [0,1].
      */
     perlin1( x ) {
 
@@ -166,6 +168,7 @@ class Noise {
      * 
      * @param {*} x 
      * @param {*} y 
+     * @returns {number} Noise value from [0,1].
      */
     perlin2( x, y ) {
 
@@ -201,6 +204,7 @@ class Noise {
      * @param {*} x 
      * @param {*} y 
      * @param {*} z 
+     * @returns {number} Noise value from [0,1].
      */
     perlin3( x, y, z ) {
 
@@ -255,6 +259,7 @@ class Noise {
     /**
      * 
      * @param {*} x 
+     * @returns {number} Noise value from [0,1].
      */
     simplex1( x ) {
 
@@ -280,6 +285,7 @@ class Noise {
      * 
      * @param {*} x 
      * @param {*} y 
+     * @returns {number} Noise value from [0,1].
      */
     simplex2( x, y ) {
 
@@ -345,6 +351,7 @@ class Noise {
      * @param {*} x 
      * @param {*} y 
      * @param {*} z 
+     * @returns {number} Noise value from [0,1].
      */
     simplex3( x, y, z ) {
 
@@ -486,7 +493,7 @@ const G2 = ( 3 - Math.sqrt( 3 ) ) / 6;
 const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
 
 /**
- * 
+ * Shared static instance of Noise. Seeded with +new Date() on load.
  */
 const noise = new Noise();
 

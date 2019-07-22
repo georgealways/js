@@ -8,11 +8,11 @@
         * [.range(min, max)](#module_@georgealways/js..Random+range) ⇒ <code>number</code>
         * [.int(min, max)](#module_@georgealways/js..Random+int) ⇒ <code>number</code>
         * [.pick(arr)](#module_@georgealways/js..Random+pick) ⇒ <code>\*</code>
-        * [.chance(percent)](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
-        * [.sign(percent)](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
+        * [.chance([percent])](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
+        * [.sign([percent])](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
         * [.shuffle(arr, [start], [stop])](#module_@georgealways/js..Random+shuffle)
     * [~SeededRandom](#module_@georgealways/js..SeededRandom) ⇐ <code>Random</code>
-        * [new SeededRandom(seed)](#new_module_@georgealways/js..SeededRandom_new)
+        * [new SeededRandom([seed])](#new_module_@georgealways/js..SeededRandom_new)
         * [.seed([seed])](#module_@georgealways/js..SeededRandom+seed)
     * [~Noise](#module_@georgealways/js..Noise)
         * [new Noise(seed)](#new_module_@georgealways/js..Noise_new)
@@ -22,27 +22,27 @@
         * [.seed(seed)](#module_@georgealways/js..Noise+seed)
         * [.perlin(x, [y], [z])](#module_@georgealways/js..Noise+perlin) ⇒ <code>number</code>
         * [.simplex(x, [y], [z])](#module_@georgealways/js..Noise+simplex) ⇒ <code>number</code>
-        * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1)
-        * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2)
-        * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3)
-        * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1)
-        * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2)
-        * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3)
+        * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1) ⇒ <code>number</code>
+        * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2) ⇒ <code>number</code>
+        * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3) ⇒ <code>number</code>
+        * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1) ⇒ <code>number</code>
+        * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2) ⇒ <code>number</code>
+        * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3) ⇒ <code>number</code>
     * [~URL](#module_@georgealways/js..URL)
         * [.hash](#module_@georgealways/js..URL+hash)
         * [.strings](#module_@georgealways/js..URL+strings)
-        * [.boolean(name, defaultValue)](#module_@georgealways/js..URL+boolean)
-        * [.number(name, defaultValue)](#module_@georgealways/js..URL+number)
+        * [.boolean(name, [defaultValue])](#module_@georgealways/js..URL+boolean) ⇒ <code>boolean</code>
+        * [.number(name, [defaultValue])](#module_@georgealways/js..URL+number) ⇒ <code>number</code>
     * [~Shuffler](#module_@georgealways/js..Shuffler)
         * [new Shuffler(arr, rng)](#new_module_@georgealways/js..Shuffler_new)
-        * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>any</code>
+        * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>\*</code>
     * [~is](#module_@georgealways/js..is)
-        * [.array](#module_@georgealways/js..is.array)
-        * [.string()](#module_@georgealways/js..is.string)
-        * [.function()](#module_@georgealways/js..is.function)
-        * [.number()](#module_@georgealways/js..is.number)
-        * [.object()](#module_@georgealways/js..is.object)
-        * [.boolean()](#module_@georgealways/js..is.boolean)
+        * [.string(v)](#module_@georgealways/js..is.string) ⇒ <code>boolean</code>
+        * [.function(v)](#module_@georgealways/js..is.function) ⇒ <code>boolean</code>
+        * [.number(v)](#module_@georgealways/js..is.number) ⇒ <code>boolean</code>
+        * [.array(v)](#module_@georgealways/js..is.array) ⇒ <code>boolean</code>
+        * [.object(v)](#module_@georgealways/js..is.object) ⇒ <code>boolean</code>
+        * [.boolean(v)](#module_@georgealways/js..is.boolean) ⇒ <code>boolean</code>
     * [~random](#module_@georgealways/js..random)
     * [~seededRandom](#module_@georgealways/js..seededRandom)
     * [~noise](#module_@georgealways/js..noise)
@@ -64,6 +64,8 @@
 <a name="module_@georgealways/js..Random"></a>
 
 ### @georgealways/js~Random
+Random number and array shuffling utilities.
+
 **Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 * [~Random](#module_@georgealways/js..Random)
@@ -71,8 +73,8 @@
     * [.range(min, max)](#module_@georgealways/js..Random+range) ⇒ <code>number</code>
     * [.int(min, max)](#module_@georgealways/js..Random+int) ⇒ <code>number</code>
     * [.pick(arr)](#module_@georgealways/js..Random+pick) ⇒ <code>\*</code>
-    * [.chance(percent)](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
-    * [.sign(percent)](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
+    * [.chance([percent])](#module_@georgealways/js..Random+chance) ⇒ <code>boolean</code>
+    * [.sign([percent])](#module_@georgealways/js..Random+sign) ⇒ <code>number</code>
     * [.shuffle(arr, [start], [stop])](#module_@georgealways/js..Random+shuffle)
 
 <a name="module_@georgealways/js..Random+value"></a>
@@ -110,21 +112,21 @@
 
 <a name="module_@georgealways/js..Random+chance"></a>
 
-#### random.chance(percent) ⇒ <code>boolean</code>
+#### random.chance([percent]) ⇒ <code>boolean</code>
 **Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type | Default |
 | --- | --- | --- |
-| percent | <code>number</code> | <code>0.5</code> | 
+| [percent] | <code>number</code> | <code>0.5</code> | 
 
 <a name="module_@georgealways/js..Random+sign"></a>
 
-#### random.sign(percent) ⇒ <code>number</code>
+#### random.sign([percent]) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Random</code>](#module_@georgealways/js..Random)  
 
 | Param | Type | Default |
 | --- | --- | --- |
-| percent | <code>number</code> | <code>0.5</code> | 
+| [percent] | <code>number</code> | <code>0.5</code> | 
 
 <a name="module_@georgealways/js..Random+shuffle"></a>
 
@@ -140,20 +142,22 @@
 <a name="module_@georgealways/js..SeededRandom"></a>
 
 ### @georgealways/js~SeededRandom ⇐ <code>Random</code>
+Random number and array shuffling utilities whose output can be seeded.
+
 **Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 **Extends**: <code>Random</code>  
 
 * [~SeededRandom](#module_@georgealways/js..SeededRandom) ⇐ <code>Random</code>
-    * [new SeededRandom(seed)](#new_module_@georgealways/js..SeededRandom_new)
+    * [new SeededRandom([seed])](#new_module_@georgealways/js..SeededRandom_new)
     * [.seed([seed])](#module_@georgealways/js..SeededRandom+seed)
 
 <a name="new_module_@georgealways/js..SeededRandom_new"></a>
 
-#### new SeededRandom(seed)
+#### new SeededRandom([seed])
 
 | Param | Type |
 | --- | --- |
-| seed | <code>number</code> | 
+| [seed] | <code>number</code> | 
 
 <a name="module_@georgealways/js..SeededRandom+seed"></a>
 
@@ -167,6 +171,9 @@
 <a name="module_@georgealways/js..Noise"></a>
 
 ### @georgealways/js~Noise
+Generator for Perlin and Simplex gradient noise functions. Computes 
+single-octave or fractal noise values in the range of [0,1].
+
 **Kind**: inner class of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 * [~Noise](#module_@georgealways/js..Noise)
@@ -177,12 +184,12 @@
     * [.seed(seed)](#module_@georgealways/js..Noise+seed)
     * [.perlin(x, [y], [z])](#module_@georgealways/js..Noise+perlin) ⇒ <code>number</code>
     * [.simplex(x, [y], [z])](#module_@georgealways/js..Noise+simplex) ⇒ <code>number</code>
-    * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1)
-    * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2)
-    * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3)
-    * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1)
-    * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2)
-    * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3)
+    * [.perlin1(x)](#module_@georgealways/js..Noise+perlin1) ⇒ <code>number</code>
+    * [.perlin2(x, y)](#module_@georgealways/js..Noise+perlin2) ⇒ <code>number</code>
+    * [.perlin3(x, y, z)](#module_@georgealways/js..Noise+perlin3) ⇒ <code>number</code>
+    * [.simplex1(x)](#module_@georgealways/js..Noise+simplex1) ⇒ <code>number</code>
+    * [.simplex2(x, y)](#module_@georgealways/js..Noise+simplex2) ⇒ <code>number</code>
+    * [.simplex3(x, y, z)](#module_@georgealways/js..Noise+simplex3) ⇒ <code>number</code>
 
 <a name="new_module_@georgealways/js..Noise_new"></a>
 
@@ -253,10 +260,11 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+perlin1"></a>
 
-#### noise.perlin1(x)
+#### noise.perlin1(x) ⇒ <code>number</code>
 TODO.
 
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -264,8 +272,9 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+perlin2"></a>
 
-#### noise.perlin2(x, y)
+#### noise.perlin2(x, y) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -274,8 +283,9 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+perlin3"></a>
 
-#### noise.perlin3(x, y, z)
+#### noise.perlin3(x, y, z) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -285,8 +295,9 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+simplex1"></a>
 
-#### noise.simplex1(x)
+#### noise.simplex1(x) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -294,8 +305,9 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+simplex2"></a>
 
-#### noise.simplex2(x, y)
+#### noise.simplex2(x, y) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -304,8 +316,9 @@ TODO.
 
 <a name="module_@georgealways/js..Noise+simplex3"></a>
 
-#### noise.simplex3(x, y, z)
+#### noise.simplex3(x, y, z) ⇒ <code>number</code>
 **Kind**: instance method of [<code>Noise</code>](#module_@georgealways/js..Noise)  
+**Returns**: <code>number</code> - Noise value from [0,1].  
 
 | Param | Type |
 | --- | --- |
@@ -321,8 +334,8 @@ TODO.
 * [~URL](#module_@georgealways/js..URL)
     * [.hash](#module_@georgealways/js..URL+hash)
     * [.strings](#module_@georgealways/js..URL+strings)
-    * [.boolean(name, defaultValue)](#module_@georgealways/js..URL+boolean)
-    * [.number(name, defaultValue)](#module_@georgealways/js..URL+number)
+    * [.boolean(name, [defaultValue])](#module_@georgealways/js..URL+boolean) ⇒ <code>boolean</code>
+    * [.number(name, [defaultValue])](#module_@georgealways/js..URL+number) ⇒ <code>number</code>
 
 <a name="module_@georgealways/js..URL+hash"></a>
 
@@ -334,23 +347,23 @@ TODO.
 **Kind**: instance property of [<code>URL</code>](#module_@georgealways/js..URL)  
 <a name="module_@georgealways/js..URL+boolean"></a>
 
-#### urL.boolean(name, defaultValue)
+#### urL.boolean(name, [defaultValue]) ⇒ <code>boolean</code>
 **Kind**: instance method of [<code>URL</code>](#module_@georgealways/js..URL)  
 
 | Param | Type |
 | --- | --- |
 | name | <code>string</code> | 
-| defaultValue | <code>any</code> | 
+| [defaultValue] | <code>boolean</code> | 
 
 <a name="module_@georgealways/js..URL+number"></a>
 
-#### urL.number(name, defaultValue)
+#### urL.number(name, [defaultValue]) ⇒ <code>number</code>
 **Kind**: instance method of [<code>URL</code>](#module_@georgealways/js..URL)  
 
 | Param | Type |
 | --- | --- |
 | name | <code>string</code> | 
-| defaultValue | <code>any</code> | 
+| [defaultValue] | <code>number</code> | 
 
 <a name="module_@georgealways/js..Shuffler"></a>
 
@@ -359,7 +372,7 @@ TODO.
 
 * [~Shuffler](#module_@georgealways/js..Shuffler)
     * [new Shuffler(arr, rng)](#new_module_@georgealways/js..Shuffler_new)
-    * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>any</code>
+    * [.next()](#module_@georgealways/js..Shuffler+next) ⇒ <code>\*</code>
 
 <a name="new_module_@georgealways/js..Shuffler_new"></a>
 
@@ -372,60 +385,106 @@ TODO.
 
 <a name="module_@georgealways/js..Shuffler+next"></a>
 
-#### shuffler.next() ⇒ <code>any</code>
+#### shuffler.next() ⇒ <code>\*</code>
 **Kind**: instance method of [<code>Shuffler</code>](#module_@georgealways/js..Shuffler)  
 <a name="module_@georgealways/js..is"></a>
 
 ### @georgealways/js~is
+Boolean test methods for type introspection.
+
 **Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 
 * [~is](#module_@georgealways/js..is)
-    * [.array](#module_@georgealways/js..is.array)
-    * [.string()](#module_@georgealways/js..is.string)
-    * [.function()](#module_@georgealways/js..is.function)
-    * [.number()](#module_@georgealways/js..is.number)
-    * [.object()](#module_@georgealways/js..is.object)
-    * [.boolean()](#module_@georgealways/js..is.boolean)
+    * [.string(v)](#module_@georgealways/js..is.string) ⇒ <code>boolean</code>
+    * [.function(v)](#module_@georgealways/js..is.function) ⇒ <code>boolean</code>
+    * [.number(v)](#module_@georgealways/js..is.number) ⇒ <code>boolean</code>
+    * [.array(v)](#module_@georgealways/js..is.array) ⇒ <code>boolean</code>
+    * [.object(v)](#module_@georgealways/js..is.object) ⇒ <code>boolean</code>
+    * [.boolean(v)](#module_@georgealways/js..is.boolean) ⇒ <code>boolean</code>
+
+<a name="module_@georgealways/js..is.string"></a>
+
+#### is.string(v) ⇒ <code>boolean</code>
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+**Returns**: <code>boolean</code> - true if the value is a string  
+
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
+
+<a name="module_@georgealways/js..is.function"></a>
+
+#### is.function(v) ⇒ <code>boolean</code>
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+**Returns**: <code>boolean</code> - true if the value is a function  
+
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
+
+<a name="module_@georgealways/js..is.number"></a>
+
+#### is.number(v) ⇒ <code>boolean</code>
+**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+**Returns**: <code>boolean</code> - true if the value is a string  
+
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
 
 <a name="module_@georgealways/js..is.array"></a>
 
-#### is.array
-**Kind**: static property of [<code>is</code>](#module_@georgealways/js..is)  
-<a name="module_@georgealways/js..is.string"></a>
-
-#### is.string()
+#### is.array(v) ⇒ <code>boolean</code>
 **Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
-<a name="module_@georgealways/js..is.function"></a>
+**Returns**: <code>boolean</code> - true if the value is an array  
 
-#### is.function()
-**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
-<a name="module_@georgealways/js..is.number"></a>
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
 
-#### is.number()
-**Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
 <a name="module_@georgealways/js..is.object"></a>
 
-#### is.object()
+#### is.object(v) ⇒ <code>boolean</code>
 **Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+**Returns**: <code>boolean</code> - true if the value is an object  
+
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
+
 <a name="module_@georgealways/js..is.boolean"></a>
 
-#### is.boolean()
+#### is.boolean(v) ⇒ <code>boolean</code>
 **Kind**: static method of [<code>is</code>](#module_@georgealways/js..is)  
+**Returns**: <code>boolean</code> - true if the value is a boolean  
+
+| Param | Type |
+| --- | --- |
+| v | <code>\*</code> | 
+
 <a name="module_@georgealways/js..random"></a>
 
 ### @georgealways/js~random
+Shared static instance of Random.
+
 **Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 <a name="module_@georgealways/js..seededRandom"></a>
 
 ### @georgealways/js~seededRandom
+Shared static instance of SeededRandom. Seeded with +new Date() on load.
+
 **Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 <a name="module_@georgealways/js..noise"></a>
 
 ### @georgealways/js~noise
+Shared static instance of Noise. Seeded with +new Date() on load.
+
 **Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 <a name="module_@georgealways/js..url"></a>
 
 ### @georgealways/js~url
+Shared static instance of URL. Uses the value of location.href on load.
+
 **Kind**: inner constant of [<code>@georgealways/js</code>](#module_@georgealways/js)  
 <a name="module_@georgealways/js..map"></a>
 

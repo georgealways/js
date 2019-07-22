@@ -1,14 +1,15 @@
 import { Random } from './random.js';
 
-
 /**
+ * Random number and array shuffling utilities whose output can be seeded.
+ * 
  * @augments Random
  */
 class SeededRandom extends Random {
 
     /**
      * 
-     * @param {number} seed 
+     * @param {number} [seed] 
      */
     constructor( seed ) {
         super();
@@ -43,7 +44,7 @@ const imul = Math.imul || function( a, b ) {
 };
 
 /**
- * 
+ * Shared static instance of SeededRandom. Seeded with +new Date() on load.
  */
 const seededRandom = new SeededRandom();
 

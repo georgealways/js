@@ -17,7 +17,7 @@ export class Shuffler {
     }
 
     /**
-     * @returns {any}
+     * @returns {*}
      */
     next() {
         if ( this.index >= this.arr.length ) {

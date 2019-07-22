@@ -36,7 +36,8 @@ class URL {
     /**
      * 
      * @param {string} name 
-     * @param {any} defaultValue 
+     * @param {boolean} [defaultValue]
+     * @returns {boolean}
      */
     boolean( name, defaultValue ) {
         if ( !this.strings.hasOwnProperty( name ) ) {
@@ -48,7 +49,8 @@ class URL {
     /**
      * 
      * @param {string} name 
-     * @param {any} defaultValue 
+     * @param {number} [defaultValue]
+     * @returns {number}
      */
     number( name, defaultValue ) {
         const r = parseFloat( this.strings[ name ] );
@@ -61,7 +63,7 @@ class URL {
 }
 
 /**
- * 
+ * Shared static instance of URL. Uses the value of location.href on load.
  */
 const url = new URL( typeof window === 'undefined' ? '' : location.href );
 
