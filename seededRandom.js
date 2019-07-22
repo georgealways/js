@@ -4,14 +4,24 @@ import { Random } from './random.js';
  * https://gist.github.com/blixt/f17b47c62508be59987b#gistcomment-2792771
  * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
+ * 
+ * @extends Random
  */
 class SeededRandom extends Random {
 
+    /**
+     * 
+     * @param {number} seed 
+     */
     constructor( seed ) {
         super();
         this.seed( seed );
     }
 
+    /**
+     * 
+     * @param {number} [seed]
+     */
     seed( seed = +new Date() ) {
         this._seed = seed;
         this._next = seed;

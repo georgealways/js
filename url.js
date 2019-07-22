@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 class URL {
 
     constructor( href ) {
@@ -5,8 +8,14 @@ class URL {
         const h = href.indexOf( '#' );
         const q = href.indexOf( '?' );
 
+        /**
+         * 
+         */
         this.hash = h === -1 ? undefined : href.substring( h + 1 );
 
+        /**
+         * 
+         */
         this.strings = {};
 
         if ( q !== -1 ) {
@@ -24,6 +33,11 @@ class URL {
 
     }
 
+    /**
+     * 
+     * @param {string} name 
+     * @param {any} defaultValue 
+     */
     boolean( name, defaultValue ) {
         if ( !this.strings.hasOwnProperty( name ) ) {
             return defaultValue;
@@ -31,6 +45,11 @@ class URL {
         return this.strings[ name ] !== 'false';
     }
 
+    /**
+     * 
+     * @param {string} name 
+     * @param {any} defaultValue 
+     */
     number( name, defaultValue ) {
         const r = parseFloat( this.strings[ name ] );
         if ( r !== r ) {
@@ -41,6 +60,9 @@ class URL {
 
 }
 
+/**
+ * 
+ */
 const url = new URL( typeof window === 'undefined' ? '' : location.href );
 
 export { url, URL };

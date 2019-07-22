@@ -2,85 +2,209 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+/**
+ * 
+ * @param {*} t 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} c 
+ * @param {*} d 
+ */
 const map = ( t, a, b, c, d ) => a === b ? c : c + ( d - c ) * ( t - a ) / ( b - a );
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} t 
+ */
 const lerp = ( a, b, t ) => ( b - a ) * t + a;
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} v 
+ */
 const normalize = ( a, b, v ) => ( v - a ) / ( b - a );
 
+/**
+ * 
+ * @param {*} t 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} c 
+ * @param {*} d 
+ */
 const cmap = ( t, a, b, c, d ) => map( clamp( t, a, b ), a, b, c, d );
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} t 
+ */
 const clerp = ( a, b, t ) => lerp( a, b, clamp01( t ) );
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} v 
+ */
 const cnormalize = ( a, b, v ) => normalize( a, b, clamp( v, a, b ) );
 
+/**
+ * 
+ * @param {*} v 
+ * @param {*} a 
+ * @param {*} b 
+ */
 const clamp = ( v, a, b ) => Math.max( Math.min( a, b ), Math.min( Math.max( a, b ), v ) );
 
+/**
+ * 
+ * @param {*} v 
+ */
 const clamp01 = v => Math.max( 0, Math.min( 1, v ) );
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} c 
+ * @param {*} d 
+ */
 const dist = ( a, b, c, d ) => Math.sqrt( dist2( a, b, c, d ) );
 
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @param {*} c 
+ * @param {*} d 
+ */
 const dist2 = ( a, b, c, d ) => ( c - a ) * ( c - a ) + ( d - b ) * ( d - b );
 
+/**
+ * 
+ * @param {*} d 
+ */
 const deg2rad = d => d * Math.PI / 180;
 
+/**
+ * 
+ * @param {*} r 
+ */
 const rad2deg = r => r * 180 / Math.PI;
 
+/**
+ * 
+ * @param {*} v 
+ * @param {*} r 
+ */
 const wrap = ( v, r ) => ( v %= r, v + Math.ceil( Math.max( 0, -v ) / r ) * r );
-
-var math = /*#__PURE__*/Object.freeze({
-    map: map,
-    lerp: lerp,
-    normalize: normalize,
-    cmap: cmap,
-    clerp: clerp,
-    cnormalize: cnormalize,
-    clamp: clamp,
-    clamp01: clamp01,
-    dist: dist,
-    dist2: dist2,
-    deg2rad: deg2rad,
-    rad2deg: rad2deg,
-    wrap: wrap
-});
 
 const toString = Object.prototype.toString;
 
-var is = {
+const is = {
+
+    /**
+     * 
+     */
     string:   v => toString.call( v ) === '[object String]',
+
+    /**
+     * 
+     */
     function: v => /\[object (Async)?Function\]/.test( toString.call( v ) ),
+
+    /**
+     * 
+     */
     number:   v => toString.call( v ) === '[object Number]',
+
+    /**
+     * 
+     */
     array:    Array.isArray || ( v => toString.call( v ) === '[object Array]' ),
+
+    /**
+     * 
+     */
     object:   v => v === Object( v ),
+
+    /**
+     * 
+     */
     boolean:  v => v === true || v === false
 };
 
+/**
+ * 
+ */
 class Random {
 
+    /**
+     * @returns {number}
+     */
     value() {
         return Math.random();
     }
 
+    /**
+     * 
+     * @param {number} min 
+     * @param {number} max 
+     * @returns {number}
+     */
     range( min, max ) {
         return lerp( min, max, this.value() );
     }
 
+    /**
+     * 
+     * @param {number} min 
+     * @param {number} max 
+     * @returns {number}
+     */
     int( min, max ) {
         return Math.floor( lerp( min, max, this.value() ) );
     }
 
+    /**
+     * 
+     * @param {Array} arr 
+     * @returns {*}
+     */
     pick( arr ) {
         return arr[ Math.floor( this.value() * arr.length ) ];
     }
 
+    /**
+     * 
+     * @param {number} percent 
+     * @returns {boolean}
+     */
     chance( percent = 0.5 ) {
         return this.value() < percent;
     }
 
+    /**
+     * 
+     * @param {number} percent 
+     * @returns {number}
+     */
     sign( percent = 0.5 ) {
         return this.chance( percent ) ? 1 : -1;
     }
 
+    /**
+     * 
+     * @param {Array} arr 
+     * @param {number} [start] 
+     * @param {number} [stop] 
+     */
     shuffle( arr, start = 0, stop = arr.length ) {
         for ( let i = start; i < stop; i++ ) {
             const r = this.int( start, stop );
@@ -92,20 +216,33 @@ class Random {
 
 }
 
-var random = new Random();
+/**
+ * 
+ */
+const random = new Random();
 
 /**
  * https://gist.github.com/blixt/f17b47c62508be59987b#gistcomment-2792771
  * https://gist.github.com/tommyettinger/46a874533244883189143505d203312c
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul#Polyfill
+ * 
+ * @extends Random
  */
 class SeededRandom extends Random {
 
+    /**
+     * 
+     * @param {number} seed 
+     */
     constructor( seed ) {
         super();
         this.seed( seed );
     }
 
+    /**
+     * 
+     * @param {number} [seed]
+     */
     seed( seed = +new Date() ) {
         this._seed = seed;
         this._next = seed;
@@ -129,9 +266,11 @@ const imul = Math.imul || function( a, b ) {
     return r | 0;
 };
 
-var seededRandom = new SeededRandom();
+const seededRandom = new SeededRandom();
 
 /**
+ * TODO:
+ * 
  * All noise functions are scaled to be between [0,1], *not* [-1,1]!
  * 
  * https://github.com/keijiro/PerlinNoise
@@ -141,10 +280,26 @@ var seededRandom = new SeededRandom();
  */
 class Noise {
 
+    /**
+     * TODO
+     * 
+     * @param {number} seed 
+     */
     constructor( seed ) {
 
+        /**
+         * TODO
+         */
         this.octaves = 2;
+
+        /**
+         * TODO
+         */
         this.persistence = 0.5;
+
+        /**
+         * TODO
+         */
         this.lacunarity = 2;
 
         this._p = new Uint8Array( 512 );
@@ -168,6 +323,11 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} seed 
+     */
     seed( seed ) {
 
         this._rng.seed( seed );
@@ -175,6 +335,14 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     * @param {number} [y] 
+     * @param {number} [z] 
+     * @returns {number} noise value from [0,1]
+     */
     perlin( x, y, z ) {
 
         const dim = arguments.length;
@@ -206,6 +374,15 @@ class Noise {
 
     }
 
+
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     * @param {number} [y] 
+     * @param {number} [z] 
+     * @returns {number} noise value from [0,1]
+     */
     simplex( x, y, z ) {
 
         const dim = arguments.length;
@@ -237,6 +414,11 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     */
     perlin1( x ) {
 
         const fx = Math.floor( x );
@@ -254,6 +436,11 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
     perlin2( x, y ) {
 
         const fx = Math.floor( x );
@@ -283,6 +470,12 @@ class Noise {
             v );
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     * @param {*} z 
+     */
     perlin3( x, y, z ) {
 
         const fx = Math.floor( x );
@@ -333,6 +526,10 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     */
     simplex1( x ) {
 
         const i0 = Math.floor( x );
@@ -353,6 +550,11 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
     simplex2( x, y ) {
 
         let n0, n1, n2;
@@ -412,6 +614,12 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     * @param {*} z 
+     */
     simplex3( x, y, z ) {
 
         let n0, n1, n2, n3;
@@ -551,8 +759,14 @@ const G2 = ( 3 - Math.sqrt( 3 ) ) / 6;
 
 const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
 
-var noise = new Noise();
+/**
+ * 
+ */
+const noise = new Noise();
 
+/**
+ * 
+ */
 class URL {
 
     constructor( href ) {
@@ -560,8 +774,14 @@ class URL {
         const h = href.indexOf( '#' );
         const q = href.indexOf( '?' );
 
+        /**
+         * 
+         */
         this.hash = h === -1 ? undefined : href.substring( h + 1 );
-        
+
+        /**
+         * 
+         */
         this.strings = {};
 
         if ( q !== -1 ) {
@@ -579,6 +799,11 @@ class URL {
 
     }
 
+    /**
+     * 
+     * @param {string} name 
+     * @param {any} defaultValue 
+     */
     boolean( name, defaultValue ) {
         if ( !this.strings.hasOwnProperty( name ) ) {
             return defaultValue;
@@ -586,6 +811,11 @@ class URL {
         return this.strings[ name ] !== 'false';
     }
 
+    /**
+     * 
+     * @param {string} name 
+     * @param {any} defaultValue 
+     */
     number( name, defaultValue ) {
         const r = parseFloat( this.strings[ name ] );
         if ( r !== r ) {
@@ -596,16 +826,30 @@ class URL {
 
 }
 
-var url = new URL( typeof window === 'undefined' ? '' : location.href );
+/**
+ * 
+ */
+const url = new URL( typeof window === 'undefined' ? '' : location.href );
 
+/**
+ * 
+ */
 class Shuffler {
 
+    /**
+     * 
+     * @param {Array} arr 
+     * @param {Random} rng 
+     */
     constructor( arr, rng ) {
         this.arr = arr;
         this.rng = rng || random;
         this._reset();
     }
 
+    /**
+     * @returns {any}
+     */
     next() {
         if ( this.index >= this.arr.length ) {
             this._reset();
@@ -641,7 +885,6 @@ exports.dist2 = dist2;
 exports.is = is;
 exports.lerp = lerp;
 exports.map = map;
-exports.math = math;
 exports.noise = noise;
 exports.normalize = normalize;
 exports.rad2deg = rad2deg;

@@ -2,6 +2,8 @@ import { lerp } from './math.js';
 import { SeededRandom } from './seededRandom.js';
 
 /**
+ * TODO:
+ * 
  * All noise functions are scaled to be between [0,1], *not* [-1,1]!
  * 
  * https://github.com/keijiro/PerlinNoise
@@ -11,10 +13,26 @@ import { SeededRandom } from './seededRandom.js';
  */
 class Noise {
 
+    /**
+     * TODO
+     * 
+     * @param {number} seed 
+     */
     constructor( seed ) {
 
+        /**
+         * TODO
+         */
         this.octaves = 2;
+
+        /**
+         * TODO
+         */
         this.persistence = 0.5;
+
+        /**
+         * TODO
+         */
         this.lacunarity = 2;
 
         this._p = new Uint8Array( 512 );
@@ -38,6 +56,11 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} seed 
+     */
     seed( seed ) {
 
         this._rng.seed( seed );
@@ -45,6 +68,14 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     * @param {number} [y] 
+     * @param {number} [z] 
+     * @returns {number} noise value from [0,1]
+     */
     perlin( x, y, z ) {
 
         const dim = arguments.length;
@@ -76,6 +107,15 @@ class Noise {
 
     }
 
+
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     * @param {number} [y] 
+     * @param {number} [z] 
+     * @returns {number} noise value from [0,1]
+     */
     simplex( x, y, z ) {
 
         const dim = arguments.length;
@@ -107,6 +147,11 @@ class Noise {
 
     }
 
+    /**
+     * TODO
+     * 
+     * @param {number} x 
+     */
     perlin1( x ) {
 
         const fx = Math.floor( x );
@@ -124,6 +169,11 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
     perlin2( x, y ) {
 
         const fx = Math.floor( x );
@@ -153,6 +203,12 @@ class Noise {
             v );
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     * @param {*} z 
+     */
     perlin3( x, y, z ) {
 
         const fx = Math.floor( x );
@@ -203,6 +259,10 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     */
     simplex1( x ) {
 
         const i0 = Math.floor( x );
@@ -223,6 +283,11 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     */
     simplex2( x, y ) {
 
         let n0, n1, n2;
@@ -282,6 +347,12 @@ class Noise {
 
     }
 
+    /**
+     * 
+     * @param {*} x 
+     * @param {*} y 
+     * @param {*} z 
+     */
     simplex3( x, y, z ) {
 
         let n0, n1, n2, n3;
@@ -421,6 +492,9 @@ const G2 = ( 3 - Math.sqrt( 3 ) ) / 6;
 
 const fade = t => t * t * t * ( t * ( t * 6 - 15 ) + 10 );
 
+/**
+ * 
+ */
 const noise = new Noise();
 
 export { noise, Noise };

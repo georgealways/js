@@ -1,13 +1,24 @@
 import { random } from './random.js';
 
+/**
+ * 
+ */
 export class Shuffler {
 
+    /**
+     * 
+     * @param {Array} arr 
+     * @param {Random} rng 
+     */
     constructor( arr, rng ) {
         this.arr = arr;
         this.rng = rng || random;
         this._reset();
     }
 
+    /**
+     * @returns {any}
+     */
     next() {
         if ( this.index >= this.arr.length ) {
             this._reset();
